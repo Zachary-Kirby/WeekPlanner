@@ -99,8 +99,11 @@ class WeekPlanner(Gtk.ApplicationWindow):
   
   def load(self, filePath="WeekPlanner.json"):
     data: dict[str, list[str]] = {}
-    with open(filePath, "r") as f:
+    try :
+      f = open(filePath, "r")
       data = json.loads(f.read())
+    except FileNotFoundError as e:
+      return
     for i in range(11):
       item_list = self.item_lists[i]
       if item_list.date == None: continue
