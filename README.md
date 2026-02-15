@@ -8,4 +8,5 @@ Useful for basic planning really quickly, especially for the lazy and time confi
 - GTK through Python for a semi native feel on Ubuntu.
 - Highlighting through in text markers such as !! at the start of a entry
 
-<img width="1308" height="455" alt="image" src="https://github.com/user-attachments/assets/b6c56180-4ac9-410b-ae39-846941655397" />
+
+![WeekPlannerExample](https://github.com/user-attachments/assets/2697f896-cad1-494c-b83b-3bbffef9bc0d)
