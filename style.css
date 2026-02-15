@@ -1,6 +1,6 @@
 .entry {
-  background-color: #3d3846;
-  border: 1px solid #000000;
+  background-color: var(--view-bg-color);
+  border: 1px solid black;
   border-radius: 8px;
   font-size: large;
   margin-bottom: 0.5em;
@@ -11,5 +11,5 @@
 
 .list {
   border-right: 2px dotted grey;
-  background-color: #241f31;
+  background-color: var(--accent-bg-color);
 }

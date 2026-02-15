@@ -112,7 +112,6 @@ class WeekPlanner(Gtk.ApplicationWindow):
         textBox.set_accepts_tab(False)
         item_list.append(textBox)
         self.entries.append(textBox)
-        print(f"CSS classes: {textBox.get_css_classes()}")
 
 
 class DraggableTextBox(Gtk.TextView):
