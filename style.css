@@ -1,0 +1,15 @@
+.entry {
+  background-color: #3d3846;
+  border: 1px solid #000000;
+  border-radius: 8px;
+  font-size: large;
+  margin-bottom: 0.5em;
+}
+.current_day_header {
+  color: #33d17a;
+}
+
+.list {
+  border-right: 2px dotted grey;
+  background-color: #241f31;
+}

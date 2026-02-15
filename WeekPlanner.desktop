@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Version=1.5
+Name=Week Planner
+Comment=Planner a week ahead and see overdue items
+Icon=/home/zachary-kirby/src/local/PythonGUI/icon.png
+Exec=/home/zachary-kirby/src/local/PythonGUI/WeekPlanner.py
+Path=/home/zachary-kirby/src/local/PythonGUI
