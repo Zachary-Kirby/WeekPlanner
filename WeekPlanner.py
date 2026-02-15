@@ -13,7 +13,6 @@ import json
 #Gnome Python API used to sanity check AI results since AI hallucinates functionality for GTK 50% of the time
 
 
-
 gi.require_version("Gtk", "4.0")
 from gi.repository import Gtk, Gdk, GObject # type: ignore
 
@@ -26,6 +25,7 @@ class WeekPlanner(Gtk.ApplicationWindow):
     day = datetime.datetime.now().strftime("%A")
     dates = [(datetime.datetime.now()+datetime.timedelta(days=i-3)).strftime("%m/%d/%Y") for i in range(11)]
     print(dates)
+    print("not caching")
     current_day_index = Days.index(day)
     provider = Gtk.CssProvider()
     provider.load_from_path("style.css")
@@ -98,7 +98,6 @@ class WeekPlanner(Gtk.ApplicationWindow):
       f.write(json.dumps(data)) 
   
   def load(self, filePath="WeekPlanner.json"):
-    print("ran")
     data: dict[str, list[str]] = {}
     with open(filePath, "r") as f:
       data = json.loads(f.read())
@@ -124,6 +123,13 @@ class DraggableTextBox(Gtk.TextView):
     dragController.connect("prepare", self.on_drag_prepare)
     dragController.connect("drag-begin", self.on_drag_begin)
     self.add_controller(dragController)
+    self.get_buffer().connect("changed", self.insertingText)
+  
+  def insertingText(self, text: Gtk.TextBuffer):
+    if text.props.text.startswith("!!"):
+      self.add_css_class("priority")
+    else:
+      self.remove_css_class("priority")
   
   def on_drag_prepare(self, _ctrl, _x, _y):
     item = Gdk.ContentProvider.new_for_value(self)
@@ -159,7 +165,7 @@ def on_activate(app):
 
 
 # Create a new application
-app = Gtk.Application(application_id="io.github.ZacharyKirby.WeekPlanner2")
+app = Gtk.Application(application_id="io.github.ZacharyKirby.WeekPlanner")
 app.connect("activate", on_activate)
 
 # Run the application

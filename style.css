@@ -9,6 +9,10 @@
   color: #33d17a;
 }
 
+.priority {
+  color: #f66151;
+}
+
 .list {
   border-right: 2px dotted grey;
   background-color: var(--accent-bg-color);
