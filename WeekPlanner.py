@@ -161,9 +161,11 @@ class TargetList(Gtk.Box):
         parent.remove(value)
       self.append(value)
 
-def on_activate(app):
+def on_activate(app: Gtk.Application):
   # Create window
-  win = WeekPlanner(application=app)
+  win = app.props.active_window
+  if not win:
+    win = WeekPlanner(application=app)
   win.present()
 
 
